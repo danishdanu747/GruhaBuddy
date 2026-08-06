@@ -1,0 +1,232 @@
+/* =========================================
+   GruhaBuddy – Auth Pages (Login/Signup)
+   ========================================= */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated background orbs */
+.auth-page::before,
+.auth-page::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    animation: float 8s ease-in-out infinite;
+}
+
+.auth-page::before {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.3), transparent 70%);
+    top: -150px;
+    right: -100px;
+}
+
+.auth-page::after {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.2), transparent 70%);
+    bottom: -100px;
+    left: -100px;
+    animation-delay: -4s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -30px) scale(1.05);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 440px;
+    padding: var(--space-6);
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: var(--space-10);
+}
+
+.auth-logo-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto var(--space-4);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-glow);
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(20, 184, 166, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(20, 184, 166, 0.4);
+    }
+}
+
+.auth-logo h1 {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auth-logo p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    margin-top: var(--space-1);
+}
+
+.auth-card {
+    padding: var(--space-8);
+}
+
+.auth-card h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-2);
+}
+
+.auth-card>p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-8);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.auth-form .input-field {
+    padding: var(--space-4);
+}
+
+.auth-extras {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--text-sm);
+}
+
+.auth-extras label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+}
+
+.auth-extras a {
+    color: var(--color-primary-light);
+    font-weight: 500;
+}
+
+.auth-social {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.auth-social .btn {
+    width: 100%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: var(--space-3) var(--space-4);
+}
+
+.auth-social .btn:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--color-border-light);
+}
+
+.auth-social .btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: var(--space-8);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+.auth-footer a {
+    color: var(--color-primary-light);
+    font-weight: 600;
+}
+
+.guest-btn {
+    margin-top: var(--space-4);
+    width: 100%;
+    padding: var(--space-3);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.guest-btn:hover {
+    color: var(--color-text-secondary);
+    border-color: var(--color-border-light);
+    background: var(--color-surface);
+}
+
+/* Password visibility toggle */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper .input-field {
+    padding-right: 44px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 4px;
+}
+
+.password-toggle:hover {
+    color: var(--color-text-secondary);
+}
